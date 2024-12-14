@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:meal_app/login_screen.dart';
 import 'package:meal_app/on_boarding.dart';
+import 'package:meal_app/sign_in_view.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class OnboardingScreen extends StatefulWidget {
@@ -30,17 +30,17 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             },
             children: const [
               OnboardingPage(
-                image: 'assets/img1.jpg',
+                image: 'assets/img1_1.gif',
                 title: 'Delicious Food',
                 description: 'Let\'s eat some diet food while steak to cook.',
               ),
               OnboardingPage(
-                image: 'assets/img2.jpg',
+                image: 'assets/img2_1.gif',
                 title: 'Healthy & Tasty',
                 description: 'Eat today live another memorable day.',
               ),
               OnboardingPage(
-                image: 'assets/img3.jpg',
+                image: 'assets/img3_1.gif',
                 title: 'Let\'s Eat...',
                 description:
                     'Food is really and truly the most effective medicine.',
@@ -57,10 +57,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   controller: pageController,
                   count: 3,
                   effect: const WormEffect(
-                    dotHeight: 10,
-                    dotWidth: 10,
-                    activeDotColor: Colors.orange,
-                  ),
+                      dotHeight: 10,
+                      dotWidth: 10,
+                      activeDotColor: Color(0xffFFAE59)),
                 ),
                 const SizedBox(height: 20),
                 Row(
@@ -81,7 +80,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const LoginScreen(),
+                              builder: (context) => SigninView(),
                             ),
                           );
                         } else {
@@ -92,11 +91,18 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         }
                       },
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.orange,
+                        backgroundColor: const Color(0xffFFAE59),
                         padding: const EdgeInsets.symmetric(
-                            horizontal: 30, vertical: 15),
+                          horizontal: 30,
+                          vertical: 15,
+                        ),
                       ),
-                      child: Text(isLastPage ? "Get Started" : "Next"),
+                      child: Text(
+                        isLastPage ? "Get Started" : "Next",
+                        style: const TextStyle(
+                          color: Colors.white,
+                        ),
+                      ),
                     ),
                   ],
                 ),
