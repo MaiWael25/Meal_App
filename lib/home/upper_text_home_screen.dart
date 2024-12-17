@@ -1,23 +1,5 @@
 import 'package:flutter/material.dart';
 
-class MainScreen extends StatelessWidget {
-  const MainScreen({super.key, required this.name});
-  final String name;
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: Column(
-        children: [
-          UpperTextHomeScreen(name: name),
-
-        ],
-      ),
-    );
-  }
-}
-
 class UpperTextHomeScreen extends StatelessWidget {
   const UpperTextHomeScreen({
     super.key,
