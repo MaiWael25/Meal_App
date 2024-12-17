@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:meal_app/on_boarding_pages.dart';
+import 'package:meal_app/splash_screen.dart';
 
 void main() {
   runApp(const MealApp());
@@ -14,7 +15,7 @@ class MealApp extends StatelessWidget {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Meal App',
-      home: OnboardingScreen(),
+      home: SplashScreen(),
     );
   }
 }
