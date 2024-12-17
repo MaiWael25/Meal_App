@@ -3,10 +3,11 @@ import 'package:meal_app/meal.dart';
 
 class CustomCard extends StatelessWidget {
   const CustomCard({
-    super.key,
-    required this.meal,
+    super.key, required this.img, required this.name, required this.subtitle,
   });
-  final Meal meal;
+  final String img;
+  final String name;
+  final String subtitle;
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -19,7 +20,7 @@ class CustomCard extends StatelessWidget {
           child: ClipRRect(
             borderRadius: BorderRadius.circular(16),
             child: Image.asset(
-              meal.imageUrl,
+              img,
               height: 250,
               width: double.infinity,
               fit: BoxFit.cover,
@@ -41,7 +42,7 @@ class CustomCard extends StatelessWidget {
               children: [
                 const SizedBox(height: 10),
                 Text(
-                  meal.title,
+                  name,
                   style: const TextStyle(
                     color: Colors.white,
                     fontSize: 18,
@@ -57,20 +58,7 @@ class CustomCard extends StatelessWidget {
                       color: Colors.white,
                     ),
                     const SizedBox(width: 5),
-                    Text("${meal.duration} min ",
-                        style: const TextStyle(color: Colors.white)),
-                    const SizedBox(width: 5),
-                    const Icon(Icons.assignment_turned_in,
-                        color: Colors.white, size: 16),
-                    const SizedBox(width: 5),
-                    Text(meal.complexity.name,
-                        style: const TextStyle(color: Colors.white)),
-                    const SizedBox(width: 5),
-                    const Icon(Icons.attach_money,
-                        color: Colors.white, size: 16),
-                    const SizedBox(width: 5),
-                    Text(meal.affordability.name,
-                        style: const TextStyle(color: Colors.white)),
+                    
                   ],
                 ),
                 const SizedBox(height: 10),

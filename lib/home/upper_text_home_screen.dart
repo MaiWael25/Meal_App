@@ -16,23 +16,24 @@ class UpperTextHomeScreen extends StatelessWidget {
         const SizedBox(height: 50,),
         Text(
           "Hello,$name !",
-          style: const TextStyle(color: Colors.grey, fontSize: 15),
+          style: const TextStyle(color: Colors.grey, fontSize: 15, fontWeight: FontWeight.bold),
         ),
         const Text(
           "Make your own food, ",
-          style: TextStyle(color: Colors.black, fontSize: 20),
+          style: TextStyle(color: Colors.black, fontSize: 20 , fontWeight: FontWeight.bold ,),
         ),
         const Row(
           children: [
             Text(
               "stay at",
-              style: TextStyle(color: Colors.black, fontSize: 20),
+              style: TextStyle(color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold),
             ),
             Text(
               " home",
               style: TextStyle(
                 color: Color(0xfff7af65),
                 fontSize: 20,
+                fontWeight: FontWeight.bold
               ),
             )
           ],

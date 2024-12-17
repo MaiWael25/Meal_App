@@ -3,8 +3,24 @@ import 'package:meal_app/info_card.dart';
 import 'package:meal_app/ingredient_list.dart';
 
 class DetailsView extends StatelessWidget {
-  const DetailsView({super.key});
-
+  const DetailsView(
+      {super.key,
+      required this.mins,
+      required this.servings,
+      required this.cal,
+      required this.type,
+      required this.ing,
+      required this.description,
+      required this.img,
+      required this.name});
+  final int mins;
+  final int servings;
+  final int cal;
+  final String type;
+  final List<String> ing;
+  final String description;
+  final String img;
+  final String name;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,9 +34,9 @@ class DetailsView extends StatelessWidget {
                 children: [
                   Container(
                     height: 300,
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
                       image: DecorationImage(
-                        image: AssetImage('assets/pancake2.png'),
+                        image: AssetImage(img),
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -32,18 +48,9 @@ class DetailsView extends StatelessWidget {
                       backgroundColor: Colors.black38,
                       child: IconButton(
                         icon: const Icon(Icons.arrow_back, color: Colors.white),
-                        onPressed: () {},
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    top: 20,
-                    right: 20,
-                    child: CircleAvatar(
-                      backgroundColor: Colors.black38,
-                      child: IconButton(
-                        icon: const Icon(Icons.bookmark, color: Colors.white),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
                       ),
                     ),
                   ),
@@ -66,9 +73,9 @@ class DetailsView extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        const Text(
-                          'Crepes with Orange and Honey',
-                          style: TextStyle(
+                        Text(
+                          name,
+                          style: const TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
                             color: Colors.black87,
@@ -100,26 +107,26 @@ class DetailsView extends StatelessWidget {
                     const SizedBox(height: 20),
 
                     // Info Cards
-                    const Row(
+                    Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         InfoCard(
-                          title: '35',
+                          title: mins.toString(),
                           subtitle: 'mins',
                           icon: Icons.access_time,
                         ),
                         InfoCard(
-                          title: '03',
+                          title: "0$servings",
                           subtitle: 'Servings',
                           icon: Icons.people,
                         ),
                         InfoCard(
-                          title: '103',
+                          title: cal.toString(),
                           subtitle: 'Cal',
                           icon: Icons.local_fire_department,
                         ),
                         InfoCard(
-                          title: 'Easy',
+                          title: type,
                           subtitle: '',
                           icon: Icons.assignment_turned_in,
                         ),
@@ -135,21 +142,21 @@ class DetailsView extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 10),
-                    const IngredientsList(),
-
+                    IngredientsList(
+                      ing: ing,
+                    ),
                     const SizedBox(height: 20),
-
                     const Text(
-                      'Directions',
+                      'Steps',
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                     const SizedBox(height: 10),
-                    const Text(
-                      'In a large mixing bowl, whisk together the flour and the eggs. Gradually add in the milk and water, stirring to combine.',
-                      style: TextStyle(
+                    Text(
+                      description,
+                      style: const TextStyle(
                         fontSize: 14,
                         height: 1.5,
                         color: Colors.black54,

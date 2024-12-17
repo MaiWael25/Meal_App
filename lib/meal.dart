@@ -19,16 +19,23 @@ class Meal {
     required this.steps,
     required this.duration,
     required this.complexity,
-    required this.affordability, required this.subtitle,
+    required this.affordability,
+    required this.subtitle,
+    required this.calories,
+    required this.servings,
+    required this.rating,
   });
 
   final String id;
   final String title;
   final String imageUrl;
   final List<String> ingredients;
-  final List<String> steps;
+  final String steps;
   final int duration;
   final Complexity complexity;
   final Affordability affordability;
   final String subtitle;
+  final int calories;
+  final int servings;
+  final double rating;
 }

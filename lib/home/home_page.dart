@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:meal_app/details_view.dart';
 import 'package:meal_app/dummy_data.dart';
 import 'package:meal_app/home/category.dart';
 import 'package:meal_app/home/category_card.dart';
 import 'package:meal_app/home/list_item_home_screen.dart';
 import 'package:meal_app/home/search_bar_home_screen.dart';
 import 'package:meal_app/home/upper_text_home_screen.dart';
+import 'package:meal_app/homepage.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({super.key, required this.name});
@@ -43,6 +45,9 @@ class MainScreen extends StatelessWidget {
                           child: ListItemHomeScreen(
                             image: categoryListImage[index],
                             text: categoryListTitle[index],
+                            onTap: () {
+                              Navigator.push(context, MaterialPageRoute(builder: (context) =>const HomePage() ,));
+                            },
                           ),
                         )
                       ],
@@ -50,11 +55,11 @@ class MainScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              Align(
+              const Align(
                 alignment: Alignment.centerLeft,
-                child: const Text(
+                child: Text(
                   'Popular Recipes',
-                  style:  TextStyle(
+                  style: TextStyle(
                     fontSize: 22,
                     fontWeight: FontWeight.bold,
                   ),
@@ -71,10 +76,28 @@ class MainScreen extends StatelessWidget {
                 itemCount: dummyMeals.length,
                 itemBuilder: (context, index) {
                   return CategoryCard(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => DetailsView(
+                            name: dummyMeals[index].title,
+                            img: dummyMeals[index].imageUrl,
+                            mins: dummyMeals[index].duration,
+                            servings: dummyMeals[index].servings,
+                            cal: dummyMeals[index].calories,
+                            type: dummyMeals[index].complexity.name,
+                            ing: dummyMeals[index].ingredients,
+                            description: dummyMeals[index].steps,
+                          ),
+                        ),
+                      );
+                    },
                     category: Category(
-                        image: dummyMeals[index].imageUrl,
-                        label: dummyMeals[index].title,
-                        subtitle: dummyMeals[index].subtitle),
+                      image: dummyMeals[index].imageUrl,
+                      label: dummyMeals[index].title,
+                      subtitle: dummyMeals[index].subtitle,
+                    ),
                   );
                 },
               ),
