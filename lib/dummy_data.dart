@@ -1,14 +1,13 @@
 import 'package:meal_app/meal.dart';
 
-
 const dummyMeals = [
   Meal(
     id: 'm1',
     title: 'Spaghetti with Tomato Sauce',
     affordability: Affordability.affordable,
     complexity: Complexity.simple,
-    imageUrl:
-        "assets/spa.jpg",    duration: 20,
+    imageUrl: "assets/spa.jpg",
+    duration: 20,
     ingredients: [
       '4 Tomatoes',
       '1 Tablespoon of Olive Oil',
@@ -28,33 +27,30 @@ const dummyMeals = [
     ],
   ),
   Meal(
-    id: 'm2',
-    title: 'Toast Hawaii',
-    affordability: Affordability.affordable,
-    complexity: Complexity.simple,
-    imageUrl:
-        'assets/toast.jpg',
-    duration: 10,
-    ingredients: [
-      '1 Slice White Bread',
-      '1 Slice Ham',
-      '1 Slice Pineapple',
-      '1-2 Slices of Cheese',
-      'Butter'
-    ],
-    steps: [
-      'Butter one side of the white bread',
-      'Layer ham, the pineapple and cheese on the white bread',
-      'Bake the toast for round about 10 minutes in the oven at 200°C'
-    ]
-  ),
+      id: 'm2',
+      title: 'Toast Hawaii',
+      affordability: Affordability.affordable,
+      complexity: Complexity.simple,
+      imageUrl: 'assets/toast.jpg',
+      duration: 10,
+      ingredients: [
+        '1 Slice White Bread',
+        '1 Slice Ham',
+        '1 Slice Pineapple',
+        '1-2 Slices of Cheese',
+        'Butter'
+      ],
+      steps: [
+        'Butter one side of the white bread',
+        'Layer ham, the pineapple and cheese on the white bread',
+        'Bake the toast for round about 10 minutes in the oven at 200°C'
+      ]),
   Meal(
     id: 'm3',
     title: 'Classic Hamburger',
     affordability: Affordability.pricey,
     complexity: Complexity.simple,
-    imageUrl:
-        'assets/hamb.jpg',
+    imageUrl: 'assets/hamb.jpg',
     duration: 45,
     ingredients: [
       '300g Cattle Hack',
@@ -77,8 +73,7 @@ const dummyMeals = [
     title: 'Wiener Schnitzel',
     affordability: Affordability.luxurious,
     complexity: Complexity.challenging,
-    imageUrl:
-        'assets/wie.jpg',
+    imageUrl: 'assets/wie.jpg',
     duration: 60,
     ingredients: [
       '8 Veal Cutlets',
@@ -105,8 +100,7 @@ const dummyMeals = [
     title: 'Salad with Smoked Salmon',
     affordability: Affordability.luxurious,
     complexity: Complexity.simple,
-    imageUrl:
-        'assets/salamon.jpg',
+    imageUrl: 'assets/salamon.jpg',
     duration: 15,
     ingredients: [
       'Arugula',
@@ -132,8 +126,7 @@ const dummyMeals = [
     title: 'Delicious Orange Mousse',
     affordability: Affordability.affordable,
     complexity: Complexity.hard,
-    imageUrl:
-        'assets/orang.jpg',
+    imageUrl: 'assets/orang.jpg',
     duration: 240,
     ingredients: [
       '4 Sheets of Gelatine',
@@ -160,8 +153,7 @@ const dummyMeals = [
     title: 'Pancakes',
     affordability: Affordability.affordable,
     complexity: Complexity.simple,
-    imageUrl:
-        'assets/pan.jpg',
+    imageUrl: 'assets/pan.jpg',
     duration: 20,
     ingredients: [
       '1 1/2 Cups all-purpose Flour',
@@ -184,8 +176,7 @@ const dummyMeals = [
     title: 'Creamy Indian Chicken Curry',
     affordability: Affordability.pricey,
     complexity: Complexity.challenging,
-    imageUrl:
-        'assets/creamy.jpg',
+    imageUrl: 'assets/creamy.jpg',
     duration: 35,
     ingredients: [
       '4 Chicken Breasts',
@@ -210,8 +201,7 @@ const dummyMeals = [
     title: 'Chocolate Souffle',
     affordability: Affordability.affordable,
     complexity: Complexity.hard,
-    imageUrl:
-        'assets/checolate.jpg',
+    imageUrl: 'assets/checolate.jpg',
     duration: 45,
     ingredients: [
       '1 Teaspoon melted Butter',
@@ -252,8 +242,7 @@ const dummyMeals = [
     title: 'Asparagus Salad with Cherry Tomatoes',
     affordability: Affordability.luxurious,
     complexity: Complexity.simple,
-    imageUrl:
-        'assets/aspa.jpg',
+    imageUrl: 'assets/aspa.jpg',
     duration: 30,
     ingredients: [
       'White and Green Asparagus',
