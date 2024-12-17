@@ -30,5 +30,4 @@ class Meal {
   final int duration;
   final Complexity complexity;
   final Affordability affordability;
-
 }
