@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:meal_app/home/home_page.dart';
 import 'package:meal_app/lable_text_form_field.dart';
 import 'package:meal_app/my_elevated_button%20copy.dart';
 import 'package:meal_app/my_text_button.dart';
@@ -6,9 +7,17 @@ import 'package:meal_app/recipe_screen.dart';
 import 'package:meal_app/sign_up_view.dart';
 
 // ignore: must_be_immutable
-class SigninView extends StatelessWidget {
-  final GlobalKey<FormState> formKey = GlobalKey();
+class SigninView extends StatefulWidget {
+
   SigninView({super.key});
+
+  @override
+  State<SigninView> createState() => _SigninViewState();
+}
+
+class _SigninViewState extends State<SigninView> {
+  final GlobalKey<FormState> formKey = GlobalKey();
+        bool? valueCheck = false;
 
   @override
   Widget build(BuildContext context) {
@@ -81,7 +90,7 @@ class SigninView extends StatelessWidget {
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const RecipeScreen(),
+                              builder: (context) =>  MainScreen(name: "esraa ehab"),
                             ),
                           );
                         }
@@ -96,6 +105,26 @@ class SigninView extends StatelessWidget {
                       ),
                     ),
                   ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      children: [
+                        const Text("Remember Me"),
+                        const Spacer(),
+                        Checkbox(
+                          checkColor: Colors.white,
+                          activeColor: Colors.orange,
+                          value: valueCheck,
+                          onChanged: (bool? newValue) {
+                            setState(() {
+                              valueCheck = newValue;
+                            });
+                          },
+                        )
+                      ],
+                    ),
+                  ),
+                  
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [

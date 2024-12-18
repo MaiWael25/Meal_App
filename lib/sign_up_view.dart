@@ -1,16 +1,27 @@
 // ignore_for_file: use_build_context_synchronously, non_constant_identifier_names
 
 import 'package:flutter/material.dart';
+import 'package:meal_app/home/home_page.dart';
 import 'package:meal_app/lable_text_form_field.dart';
 import 'package:meal_app/my_elevated_button%20copy.dart';
 import 'package:meal_app/my_text_button.dart';
-import 'package:meal_app/recipe_screen.dart';
 import 'package:meal_app/sign_in_view.dart';
 
 // ignore: must_be_immutable
-class SignUpView extends StatelessWidget {
-  final GlobalKey<FormState> formKey = GlobalKey();
+class SignUpView extends StatefulWidget {
   SignUpView({super.key});
+
+  @override
+  State<SignUpView> createState() => _SignUpViewState();
+}
+
+class _SignUpViewState extends State<SignUpView> {
+  final GlobalKey<FormState> formKey = GlobalKey();
+  int selectGroup = 1;
+  bool valueSwitch = true;
+  int age = 18;
+  bool? valueCheck = false;
+  String ?name ;
 
   @override
   Widget build(BuildContext context) {
@@ -44,9 +55,12 @@ class SignUpView extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 20),
-                  CustomLableTextFormField(
+                                    CustomLableTextFormField(
                     lableText: "Name",
                     hintText: "Enter your name",
+                    onChanged: (p0) {
+                      name=p0;
+                    },
                     inputType: TextInputType.text,
                     obscureText: false,
                     validator: (value) {
@@ -74,7 +88,32 @@ class SignUpView extends StatelessWidget {
                       return null;
                     },
                   ),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 15),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      children: [
+                        Text("Age : $age"),
+                        const SizedBox(
+                          width: 5,
+                        ),
+                        Expanded(
+                          child: Slider(
+                            activeColor: Colors.orange,
+                            label: "Select Age",
+                            value: age.toDouble(),
+                            onChanged: (value) {
+                              setState(() {
+                                age = value.toInt();
+                              });
+                            },
+                            min: 18,
+                            max: 100,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                   Center(
                     child: MyElevatedButton(
                       borderRadius: BorderRadius.circular(15),
@@ -86,7 +125,7 @@ class SignUpView extends StatelessWidget {
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const RecipeScreen(),
+                              builder: (context) => MainScreen(name: name!),
                             ),
                           );
                         }
@@ -99,6 +138,26 @@ class SignUpView extends StatelessWidget {
                           color: Colors.white,
                         ),
                       ),
+                    ),
+                  ),
+                  
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      children: [
+                        const Text("I agree to the Terms and Conditions"),
+                        const Spacer(),
+                        Checkbox(
+                          checkColor: Colors.white,
+                          activeColor: Colors.orange,
+                          value: valueCheck,
+                          onChanged: (bool? newValue) {
+                            setState(() {
+                              valueCheck = newValue;
+                            });
+                          },
+                        )
+                      ],
                     ),
                   ),
                   Row(

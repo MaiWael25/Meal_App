@@ -21,6 +21,7 @@ class MainScreen extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
           child: Column(
             children: [
+              SizedBox(height: 10,),
               UpperTextHomeScreen(name: name),
               const SizedBox(
                 height: 20,
@@ -70,7 +71,7 @@ class MainScreen extends StatelessWidget {
                 physics: const NeverScrollableScrollPhysics(),
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
-                  childAspectRatio: 9 / 11,
+                  childAspectRatio: 9 / 15,
                   crossAxisSpacing: 15,
                 ),
                 itemCount: dummyMeals.length,
